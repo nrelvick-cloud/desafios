@@ -1,0 +1,108 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    padding: 50px;
+}
+
+/* Container principal */
+.stepper {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    max-width: 900px;
+    margin: auto;
+}
+
+/* Cada etapa */
+.step {
+    flex: 1;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    position: relative;
+}
+
+/* Linha entre etapas */
+.step::after {
+    content: "";
+
+    position: absolute;
+
+    top: 22px;
+    left: 60%;
+
+    width: 80%;
+    height: 4px;
+
+    background-color: #d1d5db;
+
+    z-index: 0;
+}
+
+/* Remove linha da última etapa */
+.step:last-child::after {
+    display: none;
+}
+
+/* Círculo */
+.circle {
+    width: 45px;
+    height: 45px;
+
+    border-radius: 50%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-weight: bold;
+
+    position: relative;
+    z-index: 1;
+}
+
+/* Label */
+.label {
+    margin-top: 12px;
+    text-align: center;
+    font-size: 14px;
+}
+
+/* ===== ESTADO CONCLUÍDO ===== */
+.done .circle {
+    background-color: #22c55e;
+    color: white;
+}
+
+.done::after {
+    background-color: #22c55e;
+}
+
+/* ===== ESTADO ATIVO ===== */
+.active .circle {
+    background-color: #2563eb;
+    color: white;
+    box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.2);
+}
+
+.active .label {
+    color: #2563eb;
+    font-weight: bold;
+}
+
+/* ===== ESTADO PENDENTE ===== */
+.pending .circle {
+    background-color: #d1d5db;
+    color: #666;
+}
+
+.pending .label {
+    color: #888;
+}
